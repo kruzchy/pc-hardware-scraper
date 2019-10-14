@@ -13,16 +13,17 @@ def reformat_proxy(file_path):
 
 
 def proxybroker(limit=10, outfile='proxies.txt', types='HTTP'):
-    os.system(f'proxybroker find --type {types} -l {limit} --outfile {outfile}')
+    try:
+        if os.system(f'proxybroker find --type {types} -l {limit} --outfile {outfile}') != 0:
+            raise Exception
+    except:
+        print(f'$$$$RUNTIME ERROR OCCURRED: Retrying in 5 seconds...')
+        main()
 
 
 def main():
     print(f'>>Fetching proxies...')
-    try:
-        proxybroker(100)
-    except RuntimeError:
-        print(f'$$$$RUNTIME ERROR OCCURRED: Retrying in 5 seconds...')
-        main()
+    proxybroker(100)
     print('DONE!')
     print(f'>>Reformatting proxies...')
     reformat_proxy('proxies.txt')
