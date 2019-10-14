@@ -18,7 +18,7 @@ def proxybroker(limit=10, outfile='proxies.txt', types='HTTP'):
             raise Exception
     except:
         print(f'$$$$RUNTIME ERROR OCCURRED: Retrying in 5 seconds...')
-        main()
+        proxybroker()
 
 
 def main():
