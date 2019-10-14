@@ -18,11 +18,12 @@ def proxybroker(limit=10, outfile='proxies.txt', types='HTTP'):
 
 def main():
     print(f'>>Fetching proxies...')
-    proxybroker(100)
+    try:
+        proxybroker(100)
+    except RuntimeError:
+        print(f'$$$$RUNTIME ERROR OCCURRED: Retrying in 5 seconds...')
+        main()
     print('DONE!')
     print(f'>>Reformatting proxies...')
     reformat_proxy('proxies.txt')
     print('DONE!')
-
-
-main()
