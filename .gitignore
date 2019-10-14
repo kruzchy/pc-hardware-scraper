@@ -1,0 +1,7 @@
+.idea/
+venv/
+.ipynb*
+*.ipynb
+*.html
+*.csv
+*.txt
