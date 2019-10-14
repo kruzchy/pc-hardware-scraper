@@ -19,7 +19,10 @@ def proxybroker(limit=10, outfile='proxies.txt', types='HTTP'):
 def main():
     print(f'>>Fetching proxies...')
     proxybroker(100)
+    print('DONE!')
     print(f'>>Reformatting proxies...')
     reformat_proxy('proxies.txt')
+    print('DONE!')
+
 
 main()
