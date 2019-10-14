@@ -27,3 +27,5 @@ def main():
     print(f'>>Reformatting proxies...')
     reformat_proxy('proxies.txt')
     print('DONE!')
+
+main()
